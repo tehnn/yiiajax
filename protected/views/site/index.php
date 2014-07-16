@@ -8,7 +8,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 <div class="form">
     <?php echo CHtml::beginForm(); ?>
     <div class="row">
-        <?php $list_changwat = CHtml::listData(Cchangwat::model()->findAll(), 'changwatcode', 'changwatname'); ?>
+        <?php $list_changwat = CHtml::listData(Cchangwat::model()->findAll(), 'changwatcode', 'changwatname2'); ?>
         <?php
         echo CHtml::dropDownList('cb_changwat', $select_p, $list_changwat, array(
             'empty' => '--  จังหวัด  --',
