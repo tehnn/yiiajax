@@ -1,6 +1,6 @@
 <?php
 Yii::app()->clientScript->registerScriptFile('js/script.js');
-Yii::app()->clientScript->registerCoreScript('jquery');
+//Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
