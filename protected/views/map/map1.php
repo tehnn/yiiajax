@@ -11,4 +11,6 @@ Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/a
         zoom: 8
     }
     );
+        
+        
 </script>
