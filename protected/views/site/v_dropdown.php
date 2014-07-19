@@ -12,7 +12,7 @@
     );
     ?>
     <?php
-    $prov_code = isset($_POST['prov']) ? $_POST['prov'] : '00';
+    $prov_code = !empty($_POST['prov'])? $_POST['prov'] : '00';
     $model = CAmpur::model()->findAll("changwatcode = $prov_code");
     $list_amp = CHtml::listData($model, 'ampurcode', 'ampurname2');
     echo CHtml::dropDownList('amp', $_POST['amp'], $list_amp, array('prompt' => '--อำเภอ--',
@@ -26,7 +26,7 @@
     ?>
 
     <?php
-    $amp_code = isset($_POST['amp']) ? $_POST['amp'] : '00';
+    $amp_code = !empty($_POST['amp']) ? $_POST['amp'] : '00';
     $model = Ctambon::model()->findAll(array("condition" => "changwatcode=$prov_code and ampurcode=$amp_code"));
     $list_tmb = CHtml::listData($model, 'tamboncode', 'tambonname2');
 
