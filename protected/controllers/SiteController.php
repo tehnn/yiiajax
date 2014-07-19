@@ -4,17 +4,17 @@ class SiteController extends Controller {
 
     public function actionIndex() {
 
-        $this->render('index');
-    }
-
-    public function actionTestDropdown() {
-        
-        $this->render('v_dropdown',array(
-            'data'=>  count($_POST)>0?$_POST:NULL
+        $this->render('v_dropdown', array(
+            'data' => count($_POST) > 0 ? $_POST : NULL
         ));
     }
 
-   
+    public function actionTestDropdown() {
+
+        $this->render('v_dropdown', array(
+            'data' => count($_POST) > 0 ? $_POST : NULL
+        ));
+    }
 
     public function actionError() {
         if ($error = Yii::app()->errorHandler->error) {
