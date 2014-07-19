@@ -1,8 +1,9 @@
 <?php
+
 class AjaxController extends Controller {
-    
-     public function actionLoadAmp($pcode) {
-        $data = CAmpur::model()->findAll("changwatcode = $pcode");
+
+    public function actionLoadAmp($prov_code) {
+        $data = CAmpur::model()->findAll("changwatcode = $prov_code");
 
         $data = CHtml::listData($data, 'ampurcode', 'ampurname2');
         echo CHtml::tag('option', array('value' => ''), CHtml::encode("-- เลือกอำเภอ --"), true);
@@ -10,9 +11,9 @@ class AjaxController extends Controller {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-    
-       public function actionLoadTmb($pcode,$acode) {
-        $data = Ctambon::model()->findAll(array("condition"=>"changwatcode =  $pcode and ampurcode=$acode"));
+
+    public function actionLoadTmb($prov_code, $amp_code) {
+        $data = Ctambon::model()->findAll(array("condition" => "changwatcode=$prov_code and ampurcode=$amp_code"));
 
         $data = CHtml::listData($data, 'tamboncode', 'tambonname2');
         echo CHtml::tag('option', array('value' => ''), CHtml::encode("-- เลือกตำบล --"), true);
@@ -20,6 +21,6 @@ class AjaxController extends Controller {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-    
+
 }
 
