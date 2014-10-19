@@ -55,8 +55,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=yii_web;port=3305',
 			'emulatePrepare' => true,
-			'username' => 'tehnn',
-			'password' => '112233',
+			'username' => 'sa',
+			'password' => 'sa',
 			'charset' => 'utf8',
 		),
 		
