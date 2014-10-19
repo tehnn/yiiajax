@@ -32,7 +32,7 @@
 
     echo CHtml::dropDownList('tmb', $_POST['tmb'], $list_tmb, array('prompt' => '--ตำบล--'));
     ?>
-    <input type="submit"  value="Submit"/>
+    <input type="submit"  value="   OK   "/>
 </form>
 <hr>
 <?php
