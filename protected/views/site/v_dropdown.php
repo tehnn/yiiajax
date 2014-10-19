@@ -1,7 +1,8 @@
 <form method="POST">
     <?php
     $list_changwat = CHtml::listData(Cchangwat::model()->findAll(), 'changwatcode', 'changwatname2');
-    echo CHtml::dropDownList('prov', $_POST['prov'], $list_changwat, array('prompt' => '--จังหวัด--',
+    $sel_prov = !empty($_POST['prov']) ? $_POST['prov'] : ''; // ตรวจสอบการเลือกจังหวัดเมื่อกด submit
+    echo CHtml::dropDownList('prov', $sel_prov, $list_changwat, array('prompt' => '--จังหวัด--',
         'ajax' => array(
             'type' => 'GET',
             'url' => Yii::app()->createUrl('Ajax/LoadAmp'), //or $this->createUrl('loadcities') if '$this' extends CController
@@ -12,10 +13,14 @@
     );
     ?>
     <?php
-    $prov_code = !empty($_POST['prov'])? $_POST['prov'] : '00';
+    
+
+    $prov_code = !empty($_POST['prov']) ? $_POST['prov'] : '00';
     $model = CAmpur::model()->findAll("changwatcode = $prov_code");
     $list_amp = CHtml::listData($model, 'ampurcode', 'ampurname2');
-    echo CHtml::dropDownList('amp', $_POST['amp'], $list_amp, array('prompt' => '--อำเภอ--',
+    
+    $sel_amp = $sel_prov = !empty($_POST['amp']) ? $_POST['amp'] : '';
+    echo CHtml::dropDownList('amp', $sel_amp, $list_amp, array('prompt' => '--อำเภอ--',
         'ajax' => array(
             'type' => 'GET',
             'url' => Yii::app()->createUrl('Ajax/LoadTmb'),
@@ -30,7 +35,8 @@
     $model = Ctambon::model()->findAll(array("condition" => "changwatcode=$prov_code and ampurcode=$amp_code"));
     $list_tmb = CHtml::listData($model, 'tamboncode', 'tambonname2');
 
-    echo CHtml::dropDownList('tmb', $_POST['tmb'], $list_tmb, array('prompt' => '--ตำบล--'));
+    $sel_tmb = !empty($_POST['tmb']) ? $_POST['tmb'] : '';
+    echo CHtml::dropDownList('tmb', $sel_tmb, $list_tmb, array('prompt' => '--ตำบล--'));
     ?>
     <input type="submit"  value="   OK   "/>
 </form>
